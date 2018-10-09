@@ -11,5 +11,6 @@ public class App {
 
         AppWebClient wc = new AppWebClient();
         System.out.println(wc.getResult());
+        System.out.println(wc.getResult2());
     }
 }

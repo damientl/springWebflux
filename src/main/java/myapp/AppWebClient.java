@@ -13,8 +13,18 @@ public class AppWebClient {
             .uri("/hello")
             .accept(MediaType.TEXT_PLAIN)
             .exchange();
+    private WebClient client2 = WebClient.create("http://google.com");
+
+    private Mono<ClientResponse> result2 = client2.get()
+            .uri("")
+            .accept(MediaType.TEXT_PLAIN)
+            .exchange();
 
     public String getResult() {
         return ">> result = " + result.flatMap(res -> res.bodyToMono(String.class)).block();
+    }
+
+    public String getResult2() {
+        return ">> result2 = " + result2.flatMap(res -> res.bodyToMono(String.class)).block();
     }
 }
